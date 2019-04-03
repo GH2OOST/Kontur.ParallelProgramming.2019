@@ -15,8 +15,9 @@ namespace NMAP
 			var ipAddrs = GenIpAddrs();
 			var ports = new[] {21, 25, 80, 443, 3389 };
 
-			var scanner = new SequentialScanner();
-			scanner.Scan(ipAddrs, ports).Wait();
+			//var scanner = new SequentialScanner();
+            var scanner = new ParallelScanner();
+            scanner.Scan(ipAddrs, ports).Wait();
 		}
 
 		private static IPAddress[] GenIpAddrs()
